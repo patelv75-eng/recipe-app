@@ -1,24 +1,11 @@
-<!-- recipe-list.component.html -->
-<!-- Loops through all recipes from the DummyJSON API -->
-<!-- *ngIf shows spinner while loading -->
-<!-- *ngFor loops through each recipe -->
-<div class="container mt-4">
-  <h2 class="mb-4 text-center">Our Recipes</h2>
-
-  <!-- Spinner while API call is in progress -->
-  <div *ngIf="isLoading" class="text-center mt-5">
-    <div class="spinner-border text-success" role="status">
-      <span class="visually-hidden">Loading...</span>
-    </div>
-    <p class="mt-2">Loading recipes from API...</p>
-  </div>
-
-  <!-- Recipe grid shown once data is loaded -->
-  <div class="row" *ngIf="!isLoading">
-    <div class="col-md-4 mb-3" *ngFor="let recipe of recipes">
-      <a [routerLink]="['/recipes', recipe.id]" class="text-decoration-none">
-        <app-recipe [recipe]="recipe"></app-recipe>
-      </a>
-    </div>
+<div class="recipe-list">
+  <h1>Recipes</h1>
+  <p *ngIf="isLoading">Loading recipes…</p>
+  <p *ngIf="errorMessage" class="error-msg">{{ errorMessage }}</p>
+  <div class="recipe-grid" *ngIf="!isLoading && !errorMessage">
+    <app-recipe
+      *ngFor="let recipe of recipes"
+      [recipe]="recipe">
+    </app-recipe>
   </div>
 </div>

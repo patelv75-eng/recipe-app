@@ -1,8 +1,6 @@
-// recipe.model.ts
 export interface RecipeModel {
   id: number;
   name: string;
-  description?: string;
   ingredients: string[];
   instructions: string[];
   prepTimeMinutes: number;
@@ -11,13 +9,11 @@ export interface RecipeModel {
   difficulty: string;
   cuisine: string;
   caloriesPerServing: number;
+  tags: string[];
+  userId: number;
   image: string;
   rating: number;
-}
-
-export interface GetRecipesResponseModel {
-  recipes: RecipeModel[];
-  total: number;
-  skip: number;
-  limit: number;
+  reviewCount: number;
+  mealType: string[];
+  description?: string;  // add this line
 }

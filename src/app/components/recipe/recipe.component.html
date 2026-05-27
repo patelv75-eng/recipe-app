@@ -2,7 +2,7 @@
   <img [src]="recipe.image" alt="{{ recipe.name || 'Recipe image' }}" title="{{ recipe.name || 'Recipe image' }}" class="recipe-img" />
 
   <h1>{{ recipe.name }}</h1>
-  <p *ngIf="recipe.description">{{ recipe.description }}</p>
+ <p *ngIf="recipe.description">{{ recipe.description }}</p>
 
   <div class="recipe-meta">
     <span>🍽 Cuisine: {{ recipe.cuisine }}</span>
